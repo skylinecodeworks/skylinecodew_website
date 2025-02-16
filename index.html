@@ -481,7 +481,7 @@
       <div class="section-title">
         <h2>Contact Us</h2>
       </div>
-      <form class="contact-form" id="contactForm" novalidate>
+      <form class="contact-form" id="my-form" action="https://formspree.io/f/mnnjoqvv" method="POST" novalidate>
         <input type="text" id="name" placeholder="Your Name" required />
         <input type="email" id="email" placeholder="Your Email" required />
         <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
@@ -537,25 +537,36 @@
     }, 5000);
 
     // Contact Form Validation
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      let valid = true;
-      const name = document.getElementById('name');
-      const email = document.getElementById('email');
-      const message = document.getElementById('message');
-      const feedback = document.getElementById('formFeedback');
-      
-      if (!name.value.trim() || !email.value.trim() || !message.value.trim()) {
-        valid = false;
-      }
-      
-      if (valid) {
-        feedback.textContent = 'Thank you for your message! We will be in touch soon.';
-        this.reset();
-      } else {
-        feedback.textContent = 'Please fill in all fields.';
-      }
-    });
+    var form = document.getElementById("my-form");
+  
+    async function handleSubmit(event) {
+     event.preventDefault();
+     var status = document.getElementById("my-form-status");
+     var data = new FormData(event.target);
+     fetch(event.target.action, {
+       method: form.method,
+       body: data,
+       headers: {
+           'Accept': 'application/json'
+       }
+     }).then(response => {
+       if (response.ok) {
+         status.innerHTML = "Thanks for your submission!";
+         form.reset()
+       } else {
+         response.json().then(data => {
+           if (Object.hasOwn(data, 'errors')) {
+             status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+           } else {
+             status.innerHTML = "Oops! There was a problem submitting your form"
+           }
+         })
+       }
+     }).catch(error => {
+       status.innerHTML = "Oops! There was a problem submitting your form"
+     });
+    }
+    form.addEventListener("submit", handleSubmit)
   </script>
 </body>
 </html>
