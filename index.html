@@ -109,7 +109,7 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-    /* === Hero Section === */
+    /*
     #hero {
       position: relative;
       background: linear-gradient(135deg, #0077cc, #00aaff);
@@ -117,6 +117,20 @@
       text-align: center;
       overflow: hidden;
     }
+    */
+    #hero {
+      position: relative;
+      background: url('ruta-de-tu-imagen.jpg') no-repeat center center/cover;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+      min-height: 100vh; /* Para que ocupe toda la pantalla */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem;
+    }
+
     #hero::after {
       content: "";
       position: absolute;
