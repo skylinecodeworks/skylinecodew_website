@@ -172,18 +172,6 @@
       z-index: 0; /* Se coloca detrás del contenido */
     }
 
-    #hero::after {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.2) 2px, transparent 2px);
-      background-size: 50px 50px;
-      animation: rotateBg 30s linear infinite;
-      z-index: 0;
-    }
     @keyframes rotateBg {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
