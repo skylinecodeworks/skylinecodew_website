@@ -161,6 +161,17 @@
       width: 100%; /* Se asegura de que tome todo el ancho */
     }
 
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Capa negra semitransparente */
+      z-index: 0; /* Se coloca detrás del contenido */
+    }
+
     #hero::after {
       content: "";
       position: absolute;
@@ -185,9 +196,13 @@
     #hero h1 {
       font-size: 3rem;
       margin-bottom: 1rem;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Añade sombra para mayor contraste */
     }
     #hero p {
       font-size: 1.25rem;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+      max-width: 800px; /* Para evitar que el texto se expanda demasiado */
+      margin: 0 auto; /* Centra el párrafo */      
     }
 
     #about {
