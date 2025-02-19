@@ -120,11 +120,15 @@
 
     .nav-links {
       display: flex;
-      gap: 1.5rem;
+      flex-wrap: wrap; /* Permite que los elementos se ajusten si es necesario */
+      gap: 1rem;
+      justify-content: center; /* Centra los enlaces en la pantalla */
+      flex-direction: row; /* Asegura que estén en una fila */
     }
     .nav-links a {
       font-weight: 500;
       transition: color 0.3s ease;
+      white-space: nowrap; /* Evita que los enlaces se dividan en dos líneas */
     }
     .nav-links a:hover {
       color: var(--accent-color);
@@ -392,14 +396,18 @@
       }
 
       .sub-header {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
       }
 
       .nav-links {
-        flex-direction: column;
-        text-align: center;
+        display: flex;
+        flex-wrap: nowrap; /* No permite que los enlaces se rompan en varias líneas */
+        overflow-x: auto; /* Permite desplazamiento horizontal si hay muchos elementos */
+        white-space: nowrap;
+        justify-content: center;
+        gap: 1rem;
       }
     }
     /* === Responsive Adjustments === */
