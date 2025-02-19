@@ -61,27 +61,27 @@
       backdrop-filter: blur(5px);
       z-index: 1000;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      padding: 1rem 2rem;
     }
     .header-top {
       display: flex;
       align-items: center;
-      justify-content: space-between; /* Distribuye logo y título */
-      padding-bottom: 0.5rem;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 2px solid var(--accent-color);
     }
     .header-title {
-      font-size: 1.4rem;
+      font-size: 1.8rem;
       font-weight: bold;
       color: var(--text-color);
-      text-align: left;
       flex-grow: 1;
+      text-align: center;
     }
     .sub-header {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 0.5rem;
-    }    
+      justify-content: center;
+      padding: 0.5rem 2rem;
+      background: var(--nav-bg);
+    } 
     nav {
       display: flex;
       align-items: center;
@@ -383,7 +383,9 @@
     }
     @media (max-width: 768px) {
       .header-top {
-        text-align: left;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
 
       .header-title {
@@ -393,10 +395,12 @@
       .sub-header {
         flex-direction: column;
         gap: 0.5rem;
+        padding: 1rem 0;
       }
 
       .nav-links {
         flex-direction: column;
+        text-align: center;
       }
     }
     /* === Responsive Adjustments === */
@@ -408,12 +412,15 @@
   </style>
 </head>
 <body data-theme="dark">
-  <!-- Navigation -->
+
   <header>
+    <!-- Parte superior con Logo e Identidad -->
     <div class="header-top">
       <img src="skylinecodeworks.jpeg" alt="Skyline Codeworks" class="logo">
       <h1 class="header-title">SKYLINE CODEWORKS</h1>
     </div>
+  
+    <!-- Sub-header con el menú de navegación -->
     <nav class="sub-header">
       <div class="nav-links">
         <a href="#hero">Home</a>
@@ -422,10 +429,8 @@
         <a href="#trends">Articles</a>
         <a href="#contact">Contact</a>
       </div>
-      <!-- <button class="toggle-theme" id="themeToggle">Light</button> -->
     </nav>
   </header>
-  
 
   <!-- Hero Section -->
   <section id="hero">
