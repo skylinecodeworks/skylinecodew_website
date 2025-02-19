@@ -56,14 +56,33 @@
     }
     /* === Navigation Bar === */
     header {
-      position: sticky;
-      top: 0;
       width: 100%;
       background: var(--nav-bg);
       backdrop-filter: blur(5px);
       z-index: 1000;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 1rem 2rem;
     }
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Distribuye logo y título */
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--accent-color);
+    }
+    .header-title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--text-color);
+      text-align: center;
+      flex-grow: 1;
+    }
+    .sub-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 0.5rem;
+    }    
     nav {
       display: flex;
       align-items: center;
@@ -79,9 +98,9 @@
     }
 
     .logo {
-      width: 50px;  /* Ajusta el tamaño del logo */
+      width: 60px;
       height: auto;
-      border-radius: 50%;  /* Hace el logo circular */
+      border-radius: 50%;
       transition: transform 0.3s ease-in-out;
     }
 
@@ -363,7 +382,25 @@
     .contact-form button:hover {
       background: darken(var(--button-bg), 10%);
     }
+    @media (max-width: 768px) {
+      .header-top {
+        flex-direction: column;
+        text-align: center;
+      }
 
+      .header-title {
+        margin-top: 0.5rem;
+      }
+
+      .sub-header {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+      }
+    }
     /* === Responsive Adjustments === */
     @media (max-width: 768px) {
       #hero h1 {
@@ -375,22 +412,22 @@
 <body data-theme="dark">
   <!-- Navigation -->
   <header>
-    <nav>
-      <div class="nav-left">
-        <a href="#hero">
-          <img src="skylinecodeworks.jpeg" alt="Skyline Codeworks" class="logo">
-        </a>
-        <a href="#hero" class="nav-home">SKYLINE CODEWORKS</a>	    
-        <a href="#about" class="nav-home">About</a>
-        <a href="#services" class="nav-home">Services</a>
-        <a href="#trends" class="nav-home">Articles</a>
-        <a href="#contact" class="nav-home">Contact</a>
+    <div class="header-top">
+      <img src="skylinecodeworks.jpeg" alt="Skyline Codeworks" class="logo">
+      <h1 class="header-title">SKYLINE CODEWORKS</h1>
+    </div>
+    <nav class="sub-header">
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#trends">Articles</a>
+        <a href="#contact">Contact</a>
       </div>
-      
-      <!-- <button class="toggle-theme" id="themeToggle">Light</button> -->
-      
+      <button class="toggle-theme" id="themeToggle">Light</button>
     </nav>
   </header>
+  
 
   <!-- Hero Section -->
   <section id="hero">
