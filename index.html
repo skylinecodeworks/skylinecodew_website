@@ -3,786 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Skyline Codeworks - Innovative software solutions using AI, Web3, and cloud computing to drive digital transformation." />
-  <meta name="keywords" content="software development, AI, Web3, cloud computing, DevOps, blockchain, mobile development, enterprise software" />
-  <meta name="author" content="Skyline Codeworks" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Skyline Codeworks - Cutting-edge Software Solutions" />
-  <meta property="og:description" content="We create scalable and AI-powered solutions to drive success in in-house innovations and global client projects." />
-  <meta property="og:image" content="https://skylinecodeworks.com/logo.jpg" />
-  <meta property="og:url" content="https://skylinecodeworks.com/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Skyline Codeworks - AI & Web3 Solutions" />
-  <meta name="twitter:description" content="Building high-performance AI, blockchain, and cloud-based applications." />
-  <meta name="twitter:image" content="https://skylinecodeworks.com/logo.jpg" />
-  <link rel="canonical" href="https://skylinecodeworks.com/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap" rel="stylesheet">
-  <title>Skyline Codeworks</title>
+  <title>My GitHub Projects & About Me</title>
   <style>
-    /* === CSS Variables for Light & Dark Mode === */
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #333333;
-      --accent-color: #0077cc;
-      --nav-bg: rgba(255, 255, 255, 0.95);
-      --section-bg: #f9f9f9;
-      --button-bg: var(--accent-color);
-      --button-text: #fff;
-    }
-    [data-theme="dark"] {
-      --bg-color: #1e1e1e;
-      --text-color: #f0f0f0;
-      --accent-color: #66aaff;
-      --nav-bg: rgba(30, 30, 30, 0.95);
-      --section-bg: #2a2a2a;
-      --button-bg: var(--accent-color);
-      --button-text: #fff;
-    }
+    /* Reset & base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #f4f4f4; }
+    a { color: #0366d6; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    header, section { padding: 2rem 1rem; }
+    .container { max-width: 1000px; margin: 0 auto; }
 
-    /* === Global Styles === */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
-    img {
-      max-width: 100%;
-      display: block;
-    }
-    a {
-      text-decoration: none;
-      color: var(--accent-color);
-    }
-    h1, h2, h3 {
-      margin-bottom: 0.5em;
-    }
-    p {
-      margin-bottom: 1em;
-    }
-    /* === Navigation Bar === */
-    header {
-      width: 100%;
-      background: var(--nav-bg);
-      backdrop-filter: blur(5px);
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .header-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-    }
-    .header-title {
-      font-family: 'Kanit', sans-serif;
-      font-weight: 600; /* Semibold */
-      font-size: 1.8rem;
-      color: var(--text-color);
-      flex-grow: 1;
-      text-align: center;
-    }
-    .sub-header {
-      display: flex;
-      justify-content: center;
-      padding: 0.5rem 2rem;
-      background: var(--nav-bg);
-    } 
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 1rem;  /* Espacio entre el logo y "Home" */
-    }
+    /* Header */
+    header { background: #24292e; color: #fff; text-align: center; }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    header p { font-size: 1.1rem; }
 
-    .logo {
-      width: 60px;
-      height: auto;
-      border-radius: 50%;
-      transition: transform 0.3s ease-in-out;
-    }
+    /* About */
+    #about { background: #fff; margin-top: 1rem; border-radius: 8px; }
+    #about .container { display: flex; align-items: center; gap: 1.5rem; }
+    #about img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
+    #about .bio { flex: 1; }
 
-    .logo:hover {
-      transform: scale(1.1);
-    }
+    /* Projects */
+    #projects { margin-top: 1rem; }
+    #projects h2 { margin-bottom: 1rem; text-align: center; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .project-card { background: #fff; border-radius: 8px; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .project-card h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
+    .project-card p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .project-card a.btn { display: inline-block; padding: 0.5rem 0.75rem; border-radius: 4px; background: #0366d6; color: #fff; font-size: 0.9rem; }
 
-    .nav-home {
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: var(--text-color);
-      text-decoration: none;
-      transition: color 0.3s ease-in-out;
-    }
-
-    .nav-home:hover {
-      color: var(--accent-color);
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap; /* Permite que los elementos se ajusten si es necesario */
-      gap: 1rem;
-      justify-content: center; /* Centra los enlaces en la pantalla */
-      flex-direction: row; /* Asegura que estén en una fila */
-    }
-    .nav-links a {
-      color: #ffffff;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      white-space: nowrap; /* Evita que los enlaces se dividan en dos líneas */
-    }
-    .nav-links a:hover {
-      color: var(--accent-color);
-    }
-    .toggle-theme {
-      cursor: pointer;
-      border: none;
-      background: transparent;
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-    .toggle-theme:hover {
-      background: var(--accent-color);
-      color: var(--button-text);
-    }
-
-    /* === Section Styles === */
-    section {
-      padding: 4rem 2rem;
-      min-height: 100vh;
-      background: var(--section-bg);
-      display: flex;
-      align-items: center;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    /*
-    #hero {
-      position: relative;
-      background: linear-gradient(135deg, #0077cc, #00aaff);
-      color: #fff;
-      text-align: center;
-      overflow: hidden;
-    }
-    */
-    #hero {
-      position: relative;
-      background: url('software_view.jpg') no-repeat center center/cover;
-      color: #fff;
-      text-align: center;
-      overflow: hidden;
-      min-height: 100vh; /* Para que ocupe toda la pantalla */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 2rem;
-      width: 100%; /* Se asegura de que tome todo el ancho */
-    }
-
-    #hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* Capa negra semitransparente */
-      z-index: 0; /* Se coloca detrás del contenido */
-    }
-
-    @keyframes rotateBg {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    #hero .content {
-      position: relative;
-      z-index: 1;
-      padding: 4rem 2rem;
-    }
-    #hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Añade sombra para mayor contraste */
-    }
-    #hero p {
-      font-size: 1.25rem;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-      max-width: 800px; /* Para evitar que el texto se expanda demasiado */
-      margin: 0 auto; /* Centra el párrafo */      
-    }
-
-    #about {
-      position: relative;
-      overflow: hidden;
-    }
-
-    #about::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/axiom-pattern.png'); /* Patrón ligero */
-      opacity: 0.2;
-      animation: waveAnimation 8s linear infinite alternate;
-    }
-    #about .content {
-      position: relative;
-      z-index: 1;
-      padding: 4rem 2rem;
-    }
-    #about h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    #about p {
-      font-size: 1.25rem;
-    }
-
-    @keyframes waveAnimation {
-      from {
-        transform: translateY(-10px);
-      }
-      to {
-        transform: translateY(10px);
-      }
-    }
-
-    /* === About, Services, etc. === */
-    section:not(#hero, #about) {
-      background: var(--bg-color);
-    }
-    .section-title {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    /* === Services Section === */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 2rem;
-    }
-    .service-item {
-      background: var(--section-bg);
-      padding: 1.5rem;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .service-item:hover {
-      transform: translateY(-5px);
-    }
-    .service-icon {
-      margin-bottom: 1rem;
-    }
-    /* Simple SVG icon style */
-    .service-icon svg {
-      width: 48px;
-      height: 48px;
-      fill: var(--accent-color);
-    }
-
-    /* === Trends Section (Slider) === */
-    .slider {
-      position: relative;
-      overflow: hidden;
-    }
-    .slides {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-    .slide {
-      min-width: 100%;
-      padding: 2rem;
-      text-align: center;
-    }
-    .slider-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-    }
-    .slider-controls button {
-      background: var(--accent-color);
-      border: none;
-      color: var(--button-text);
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      border-radius: 50%;
-      opacity: 0.8;
-      transition: opacity 0.3s ease;
-    }
-    .slider-controls button:hover {
-      opacity: 1;
-    }
-
-    /* === Portfolio Carousel === */
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 1rem;
-      padding-bottom: 1rem;
-    }
-    .carousel-item {
-      flex: 0 0 300px;
-      background: var(--section-bg);
-      border-radius: 8px;
-      overflow: hidden;
-      scroll-snap-align: center;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .carousel-item:hover {
-      transform: scale(1.05);
-    }
-    .carousel-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .carousel-item .item-content {
-      padding: 1rem;
-    }
-
-    /* === Contact Form === */
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: var(--section-bg);
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-    .contact-form button {
-      background: var(--button-bg);
-      color: var(--button-text);
-      border: none;
-      padding: 0.75rem 1.5rem;
-      cursor: pointer;
-      border-radius: 4px;
-      font-size: 1rem;
-      transition: background 0.3s ease;
-    }
-    .contact-form button:hover {
-      background: darken(var(--button-bg), 10%);
-    }
-    @media (max-width: 768px) {
-      .header-top {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .header-title {
-        font-family: 'Kanit', sans-serif;
-        font-weight: 600; /* Semibold */
-        margin-top: 0.5rem;
-      }
-
-      .sub-header {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .nav-links {
-        display: flex;
-        flex-wrap: nowrap; /* No permite que los enlaces se rompan en varias líneas */
-        overflow-x: auto; /* Permite desplazamiento horizontal si hay muchos elementos */
-        white-space: nowrap;
-        justify-content: center;
-        gap: 1rem;
-      }
-    }
-    /* === Responsive Adjustments === */
-    @media (max-width: 768px) {
-      #hero h1 {
-        font-size: 2.5rem;
-      }
-    }
-    .kanit-thin {
-      font-family: "Kanit", serif;
-      font-weight: 100;
-      font-style: normal;
-    }
-    
-    .kanit-extralight {
-      font-family: "Kanit", serif;
-      font-weight: 200;
-      font-style: normal;
-    }
-
-    .kanit-light {
-      font-family: "Kanit", serif;
-      font-weight: 300;
-      font-style: normal;
-    }
-
-    .kanit-regular {
-      font-family: "Kanit", serif;
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    .kanit-medium {
-      font-family: "Kanit", serif;
-      font-weight: 500;
-      font-style: normal;
-    }
-
-    .kanit-semibold {
-      font-family: "Kanit", serif;
-      font-weight: 600;
-      font-style: normal;
-    }
-
-    .kanit-bold {
-      font-family: "Kanit", serif;
-      font-weight: 700;
-      font-style: normal;
-    }
-
-    .kanit-extrabold {
-      font-family: "Kanit", serif;
-      font-weight: 800;
-      font-style: normal;
-    }
-
-    .kanit-black {
-      font-family: "Kanit", serif;
-      font-weight: 900;
-      font-style: normal;
-    }
-
-    .kanit-thin-italic {
-      font-family: "Kanit", serif;
-      font-weight: 100;
-      font-style: italic;
-    }
-
-    .kanit-extralight-italic {
-      font-family: "Kanit", serif;
-      font-weight: 200;
-      font-style: italic;
-    }
-
-    .kanit-light-italic {
-      font-family: "Kanit", serif;
-      font-weight: 300;
-      font-style: italic;
-    }
-
-    .kanit-regular-italic {
-      font-family: "Kanit", serif;
-      font-weight: 400;
-      font-style: italic;
-    }
-
-    .kanit-medium-italic {
-      font-family: "Kanit", serif;
-      font-weight: 500;
-      font-style: italic;
-    }
-
-    .kanit-semibold-italic {
-      font-family: "Kanit", serif;
-      font-weight: 600;
-      font-style: italic;
-    }
-
-    .kanit-bold-italic {
-      font-family: "Kanit", serif;
-      font-weight: 700;
-      font-style: italic;
-    }
-
-    .kanit-extrabold-italic {
-      font-family: "Kanit", serif;
-      font-weight: 800;
-      font-style: italic;
-    }
-
-    .kanit-black-italic {
-      font-family: "Kanit", serif;
-      font-weight: 900;
-      font-style: italic;
-    }
-
+    /* Footer */
+    footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #666; }
   </style>
 </head>
-<body data-theme="dark">
-
+<body>
   <header>
-    <!-- Parte superior con Logo e Identidad -->
-    <div class="header-top">
-      <img src="skylinecodeworks.jpeg" alt="Skyline Codeworks" class="logo">
-      <h1 class="header-title">SKYLINE CODEWORKS</h1>
+    <div class="container">
+      <h1>Your Name</h1>
+      <p>Software Engineer & AI Enthusiast</p>
     </div>
-  
-    <!-- Sub-header con el menú de navegación -->
-    <nav class="sub-header">
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="https://github.com/skylinecodeworks">Github</a>
-        <a href="https://www.linkedin.com/company/skyline-codeworks/">LinkedIn</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <div class="content container">
-      <h1>Clean, dynamic, innovative Software Solutions</h1>
-      <p>Pioneering digital transformation by developing cutting-edge, scalable, and AI-powered solutions. We combine technical expertise and strategic insight to drive success in in-house innovations and global client projects.</p>
-    </div>
-  </section>
-
-  <!-- About Us -->
   <section id="about">
     <div class="container">
-      <div class="section-title">
-        <h2>About Us</h2>
-	<p>At Skyline Codeworks, we are more than just a software development company—we are your strategic technology partner. With a strong foundation in cloud computing, AI, Web3, and enterprise software, we specialize in building custom solutions that redefine industries.</p>
-	<p>Our team brings extensive experience in DevOps, blockchain applications, AI-driven analytics, and mobile-first architectures, ensuring that every solution is secure, scalable, and future-proof. Whether working on our own innovative projects or collaborating with global clients, we deliver exceptional digital experiences that drive growth and efficiency.</p>
+      <img src="https://via.placeholder.com/150" alt="Your Photo">
+      <div class="bio">
+        <p>Hi! I'm [Your Name], a passionate developer with experience in AI, cloud infrastructure, and full-stack web development. Over the years I've built tools, libraries, and apps that solve real-world problems.</p>
       </div>
     </div>
   </section>
 
-  <!-- Services -->
-  <section id="services">
+  <section id="projects">
     <div class="container">
-      <div class="section-title">
-        <h2>Our Services</h2>
-      </div>
-      <div class="services-grid">
-        
-	<div class="service-item">
-          <h3>Custom Software</h3>
-          <p>Tailor-made applications designed to meet your specific business needs. From AI-driven platforms to Web3-powered solutions, we deliver scalable, high-performance systems.</p>
-        </div>
-
-        <div class="service-item">
-          <h3>Cloud & DevOps Consulting</h3>
-          <p>Expert guidance in Cloud, Kubernetes, and scalable cloud architectures, ensuring security, automation, and seamless deployments.</p>
-        </div>
-
-        <div class="service-item">
-          <h3>AI & Machine Learning</h3>
-          <p>Building intelligent, predictive, and automated solutions that enhance decision-making, optimize operations, and drive innovation.</p>
-        </div>
-
-        <div class="service-item">
-          <h3>Web3 & Blockchain Solutions</h3>
-          <p>Innovating with decentralized applications, smart contracts, and Bitcoin-based Web3 to create secure, transparent, and next-gen digital ecosystems.</p>
-        </div>
-
-        <div class="service-item">
-          <h3>Mobile & Web Development</h3>
-          <p>Creating cross-platform, user-centric applications using Flutter, Node.js, and modern frameworks, ensuring smooth user experiences.</p>
-        </div>
-
-        <div class="service-item">
-          <h3>Enterprise Software & CRM Customization</h3>
-          <p>Optimizing business workflows and AI-powered automation, helping enterprises enhance customer engagement and operational efficiency.</p>
-        </div>
-
+      <h2>GitHub Projects</h2>
+      <div class="projects-grid" id="repo-list">
+        <!-- Repo cards will be injected here -->
       </div>
     </div>
   </section>
 
-  <!-- Latest Trends & Insights (Slider) 
-  <section id="trends">
-    <div class="container">
-      <div class="section-title">
-        <h2>Latest Trends & Insights</h2>
-      </div>
-      <div class="slider">
-        <div class="slides" id="trendSlides">
-          <div class="slide">
-            <h3>AI in 2025</h3>
-            <p>Discover how artificial intelligence is reshaping industries.</p>
-          </div>
-          <div class="slide">
-            <h3>Blockchain Beyond Crypto</h3>
-            <p>Learn about innovative blockchain applications in various sectors.</p>
-          </div>
-          <div class="slide">
-            <h3>Web3 Revolution</h3>
-            <p>Explore the decentralized future of the web and its impact.</p>
-          </div>
-        </div>
-        <div class="slider-controls">
-          <button id="prevSlide">&#9664;</button>
-          <button id="nextSlide">&#9654;</button>
-        </div>
-      </div>
-    </div>
-  </section>
-  -->
+  <footer>
+    <p>© <span id="year"></span> [Your Name]. All rights reserved.</p>
+  </footer>
 
-  <!--
-  <section id="portfolio">
-    <div class="container">
-      <div class="section-title">
-        <h2>Portfolio</h2>
-      </div>
-      <div class="carousel">
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/300x200" alt="Project 1" />
-          <div class="item-content">
-            <h3>Project One</h3>
-            <p>Innovative solution for a global client.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/300x200" alt="Project 2" />
-          <div class="item-content">
-            <h3>Project Two</h3>
-            <p>Cutting-edge in-house project development.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="https://via.placeholder.com/300x200" alt="Project 3" />
-          <div class="item-content">
-            <h3>Project Three</h3>
-            <p>Digital transformation for a renowned brand.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  -->
-
-  <!-- Contact Us -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-title">
-        <h2>Contact Us</h2>
-      </div>
-      <form class="contact-form" id="my-form" action="https://formspree.io/f/mnnjoqvv" method="POST" novalidate>
-        <input type="text" id="name" name="name" placeholder="Your Name" required />
-        <input type="email" id="email" name="email" placeholder="Your Email" required />
-        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" id="my-form-button" >Send Message</button>
-        <div id="my-form-status" style="margin-top:1rem; color: var(--accent-color);"></div>
-      </form>
-      <div style="text-align:center; margin-top:2rem;">
-        <a href="mailto:tom@skylinecodew.com">Email</a> | 
-        <a href="https://www.linkedin.com/company/skyline-codeworks" target="_blank">LinkedIn</a> | 
-        <a href="https://github.com/skylinecodeworks" target="_blank">GitHub</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- === JavaScript === -->
   <script>
-    // Dark/Light Mode Toggle
-    const themeToggle = document.getElementById('themeToggle');
-    themeToggle.addEventListener('click', () => {
-      const body = document.body;
-      if (body.getAttribute('data-theme') === 'light') {
-        body.setAttribute('data-theme', 'dark');
-        themeToggle.textContent = 'Light';
-      } else {
-        body.setAttribute('data-theme', 'light');
-        themeToggle.textContent = 'Dark';
+    // Configuration: replace with your GitHub username
+    const githubUsername = 'your-username-here';
+    const repoContainer = document.getElementById('repo-list');
+    const currentYear = new Date().getFullYear();
+    document.getElementById('year').textContent = currentYear;
+
+    async function fetchRepos() {
+      try {
+        const res = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=10`);
+        const repos = await res.json();
+        repos.forEach(repo => {
+          const card = document.createElement('div');
+          card.className = 'project-card';
+          card.innerHTML = `
+            <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+            <p>${repo.description || 'No description provided.'}</p>
+            <a class="btn" href="${repo.html_url}" target="_blank">View on GitHub</a>
+          `;
+          repoContainer.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Error fetching repos:', err);
+        repoContainer.innerHTML = '<p>Unable to load repositories at this time.</p>';
       }
-    });
-
-    // Slider Functionality for Trends Section
-    const slidesContainer = document.getElementById('trendSlides');
-    const slides = document.querySelectorAll('.slide');
-    let currentSlide = 0;
-    const totalSlides = slides.length;
-
-    document.getElementById('nextSlide').addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateSlider();
-    });
-    document.getElementById('prevSlide').addEventListener('click', () => {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      updateSlider();
-    });
-
-    function updateSlider() {
-      slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
 
-    // Auto-advance slider every 5 seconds
-    setInterval(() => {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateSlider();
-    }, 5000);
-
-    // Contact Form Validation
-    var form = document.getElementById("my-form");
-  
-    async function handleSubmit(event) {
-     event.preventDefault();
-     var status = document.getElementById("my-form-status");
-     var data = new FormData(event.target);
-     fetch(event.target.action, {
-       method: form.method,
-       body: data,
-       headers: {
-           'Accept': 'application/json'
-       }
-     }).then(response => {
-       if (response.ok) {
-         status.innerHTML = "Thanks for your submission!";
-         form.reset()
-       } else {
-         response.json().then(data => {
-           if (Object.hasOwn(data, 'errors')) {
-             status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-           } else {
-             status.innerHTML = "Oops! There was a problem submitting your form"
-           }
-         })
-       }
-     }).catch(error => {
-       status.innerHTML = "Oops! There was a problem submitting your form"
-     });
-    }
-    form.addEventListener("submit", handleSubmit)
+    // Initialize
+    fetchRepos();
   </script>
 </body>
 </html>
