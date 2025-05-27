@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My GitHub Projects & About Me</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skyline Codeworks - Projects & About Us</title>
   <style>
     /* Reset & base */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,9 +20,9 @@
 
     /* About */
     #about { background: #fff; margin-top: 1rem; border-radius: 8px; }
-    #about .container { display: flex; align-items: center; gap: 1.5rem; }
+    #about .container { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
     #about img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
-    #about .bio { flex: 1; }
+    #about .bio { flex: 1; min-width: 250px; }
 
     /* Projects */
     #projects { margin-top: 1rem; }
@@ -30,71 +30,76 @@
     .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
     .project-card { background: #fff; border-radius: 8px; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
     .project-card h3 { margin-bottom: 0.5rem; font-size: 1.2rem; }
-    .project-card p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .project-card p { font-size: 0.95rem; margin-bottom: 0.75rem; min-height: 50px; }
     .project-card a.btn { display: inline-block; padding: 0.5rem 0.75rem; border-radius: 4px; background: #0366d6; color: #fff; font-size: 0.9rem; }
 
     /* Footer */
-    footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #666; }
+    footer { text-align: center; padding: 1rem; font-size: 0.9rem; color: #666; margin-top: 2rem; }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1>Tomás Pascual</h1>
-      <p>Software Engineer & AI Enthusiast</p>
+      <h1>Skyline Codeworks</h1>
+      <p>Leader and Architect of Digital Futures — Guiding Teams, Crafting Innovation</p>
     </div>
   </header>
 
   <section id="about">
     <div class="container">
-      <img src="https://media.licdn.com/dms/image/v2/D4E03AQE6vNu_1b-p_A/profile-displayphoto-shrink_800_800/B4EZY07r53GYAc-/0/1744644784603?e=1753920000&v=beta&t=BuG0gNpOHLdg6NchGvtW1MlFX2BE9_Esg87d05gygM4" alt="Your Photo">
+      <img src="https://via.placeholder.com/150" alt="Skyline Codeworks Logo or Photo" />
       <div class="bio">
-        <p>Hi! I'm [Your Name], a passionate developer with experience in AI, cloud infrastructure, and full-stack web development. Over the years I've built tools, libraries, and apps that solve real-world problems.</p>
+        <p>Welcome to Skyline Codeworks. We combine deep technical expertise with visionary leadership to build innovative software solutions that empower businesses and transform ideas into reality.</p>
       </div>
     </div>
   </section>
 
   <section id="projects">
     <div class="container">
-      <h2>GitHub Projects</h2>
+      <h2>Public GitHub Projects</h2>
       <div class="projects-grid" id="repo-list">
-        <!-- Repo cards will be injected here -->
+        <!-- Repositories will load here -->
       </div>
     </div>
   </section>
 
   <footer>
-    <p>© <span id="year"></span> [Your Name]. All rights reserved.</p>
+    <p>© <span id="year"></span> Skyline Codeworks. All rights reserved.</p>
   </footer>
 
   <script>
-    // Configuration: replace with your GitHub username
-    const githubUsername = 'your-username-here';
+    const githubOrg = 'skylinecodeworks';
     const repoContainer = document.getElementById('repo-list');
-    const currentYear = new Date().getFullYear();
-    document.getElementById('year').textContent = currentYear;
+    document.getElementById('year').textContent = new Date().getFullYear();
 
     async function fetchRepos() {
       try {
-        const res = await fetch(`https://api.github.com/users/${githubUsername}/repos?sort=updated&per_page=10`);
+        const res = await fetch(`https://api.github.com/orgs/${githubOrg}/repos?sort=updated&per_page=10`);
+        if (!res.ok) throw new Error(`GitHub API error: ${res.status}`);
+
         const repos = await res.json();
+
+        if (repos.length === 0) {
+          repoContainer.innerHTML = '<p>No public repositories found.</p>';
+          return;
+        }
+
         repos.forEach(repo => {
           const card = document.createElement('div');
           card.className = 'project-card';
           card.innerHTML = `
-            <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
-            <p>${repo.description || 'No description provided.'}</p>
-            <a class="btn" href="${repo.html_url}" target="_blank">View on GitHub</a>
+            <h3><a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">${repo.name}</a></h3>
+            <p>${repo.description ? repo.description : 'No description provided.'}</p>
+            <a class="btn" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">View on GitHub</a>
           `;
           repoContainer.appendChild(card);
         });
       } catch (err) {
-        console.error('Error fetching repos:', err);
+        console.error('Error fetching repositories:', err);
         repoContainer.innerHTML = '<p>Unable to load repositories at this time.</p>';
       }
     }
 
-    // Initialize
     fetchRepos();
   </script>
 </body>
